@@ -32,6 +32,46 @@ if (navToggle && navMobile) {
   });
 }
 
+// acordeão "outros serviços/formatos": abre no hover (preview) e fixa aberto no clique
+document.querySelectorAll('.svc-accordion details').forEach((det) => {
+  let pinned = det.hasAttribute('open');
+  const summary = det.querySelector('summary');
+
+  det.addEventListener('mouseenter', () => { det.open = true; });
+  det.addEventListener('mouseleave', () => { if (!pinned) det.open = false; });
+
+  summary.addEventListener('click', (e) => {
+    e.preventDefault();
+    pinned = !pinned;
+    det.open = pinned;
+  });
+});
+
+// slider de depoimentos (troca automática + navegação por bolinhas)
+document.querySelectorAll('.quotes-slider').forEach((slider) => {
+  const track = slider.querySelector('.quotes-track');
+  const slides = Array.from(track.children);
+  const dots = Array.from(slider.querySelectorAll('.quotes-dot'));
+  let index = 0;
+  let timer;
+
+  const show = (i) => {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d, di) => d.classList.toggle('active', di === index));
+  };
+  const next = () => show(index + 1);
+  const start = () => { timer = setInterval(next, 6000); };
+  const stop = () => clearInterval(timer);
+
+  dots.forEach((d, di) => d.addEventListener('click', () => { show(di); stop(); start(); }));
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', start);
+
+  show(0);
+  start();
+});
+
 // CTA de cada caminho (empresa/profissional) pré-seleciona o perfil no formulário de contato
 document.querySelectorAll('[data-perfil]').forEach((btn) => {
   btn.addEventListener('click', () => {

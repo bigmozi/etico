@@ -189,6 +189,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
 .chip{border:1px solid var(--color-border);border-radius:var(--radius-pill);padding:8px 16px;font-size:.84rem;font-weight:500;color:var(--color-brand-primary);background:var(--color-white)}
 
+/* ---------- valores (lista numerada) ---------- */
+.values-list{margin-top:8px;border-top:1px solid var(--color-border)}
+.value-item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--color-border);align-items:start}
+.value-num{font-family:var(--font-heading);font-weight:700;font-style:italic;font-size:2.1rem;color:var(--color-surface-alt);line-height:1}
+.value-item h3{font-size:1.25rem;color:var(--color-brand-primary);margin-bottom:8px;font-weight:600}
+.value-item p{color:var(--color-text-muted);font-size:.98rem;line-height:1.55}
+
+@media (max-width:600px){
+  .value-item{grid-template-columns:40px 1fr;gap:16px}
+  .value-num{font-size:1.6rem}
+}
+
 /* ---------- assinatura + credenciais da fundadora ---------- */
 .cv-list{list-style:none;margin:22px 0 0;border-top:1px solid var(--color-border)}
 .cv-list li{padding:14px 0;border-bottom:1px solid var(--color-border);display:grid;grid-template-columns:150px 1fr;gap:16px;font-size:.9rem}
@@ -322,14 +334,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   background:var(--color-surface-alt);color:var(--color-brand-primary);border-radius:var(--radius-pill);padding:5px 12px;margin-left:10px;vertical-align:middle}
 .quotes-slider{position:relative;margin-top:34px;overflow:hidden}
 .quotes-track{display:flex;transition:transform .5s ease}
-.quotes-track .quote{flex:0 0 100%;box-sizing:border-box}
-.quote{background:var(--color-surface-soft);border:1px solid var(--color-border);border-radius:var(--radius-card);padding:28px 24px;max-width:640px;margin:0 auto}
-.quote .mark{font-family:var(--font-heading);font-size:2.6rem;color:var(--color-surface-alt);line-height:.6;height:24px;display:block}
-.quote p{font-size:.98rem;color:var(--color-text);margin-bottom:18px}
-.quote .by{font-size:.84rem;color:var(--color-text-muted)}
+.quotes-page{flex:0 0 100%;box-sizing:border-box;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.quote{background:var(--color-surface-soft);border:1px solid var(--color-border);border-radius:var(--radius-card);padding:20px 20px;box-sizing:border-box}
+.quote .mark{font-family:var(--font-heading);font-size:1.8rem;color:var(--color-surface-alt);line-height:.6;height:16px;display:block}
+.quote p{font-size:.86rem;line-height:1.45;color:var(--color-text);margin-bottom:12px}
+.quote .by{font-size:.78rem;color:var(--color-text-muted)}
 .quotes-dots{display:flex;gap:8px;justify-content:center;margin-top:20px}
 .quotes-dot{width:8px;height:8px;padding:0;border:none;border-radius:50%;background:var(--color-border);cursor:pointer;transition:background .2s,transform .2s}
 .quotes-dot.active{background:var(--color-accent);transform:scale(1.2)}
+
+@media (max-width:820px){
+  .quotes-page{grid-template-columns:1fr;gap:12px}
+}
 
 /* ---------- contato ---------- */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
@@ -387,7 +403,8 @@ select:focus{outline:none;border-color:var(--color-accent)}
 select option{color:#111}
 
 /* ---------- page intro (sobre / serviços / contato) ---------- */
-.page-hero .wrap{padding-top:64px;padding-bottom:64px}
+.page-hero{background:var(--color-brand-primary)}
+.page-hero .wrap{padding-top:52px;padding-bottom:52px}
 .page-hero .lead{color:var(--color-text-inverse-strong);max-width:56ch;margin-top:14px}
 
 /* ---------- footer ---------- */
@@ -425,7 +442,6 @@ footer a:hover{color:var(--color-accent)}
   .nav-links{display:none}
   .hero-photo{background-position:center 30%}
   .hero-mark{font-size:9rem;right:0%;top:82%}
-  .page-hero .hero-mark{display:none}
   .cv-list li{grid-template-columns:1fr;gap:4px}
   .btn-half{width:100%}
   .quote{padding:22px 20px}
