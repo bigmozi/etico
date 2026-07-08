@@ -81,6 +81,19 @@ document.querySelectorAll('[data-perfil]').forEach((btn) => {
   });
 });
 
+// vindo da página de Serviços & Cursos, pré-seleciona perfil e desafio via query string
+const linkParams = new URLSearchParams(window.location.search);
+const perfilParam = linkParams.get('perfil');
+if (perfilParam) {
+  const radio = document.querySelector(`input[name="perfil"][value="${perfilParam}"]`);
+  if (radio) radio.checked = true;
+}
+const desafioParam = linkParams.get('desafio');
+if (desafioParam) {
+  const desafioSelect = document.getElementById('desafio');
+  if (desafioSelect) desafioSelect.value = desafioParam;
+}
+
 // formulário de lead, validação client-side (envio real depende de integração de backend)
 const form = document.getElementById('leadForm');
 if (form) {
