@@ -457,7 +457,7 @@ select option{color:#111}
 
 /* ---------- footer ---------- */
 footer{background:var(--color-brand-primary-deep);color:var(--color-text-inverse-faint);padding:60px 0 40px;font-size:.85rem}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:36px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:24px;margin-bottom:36px}
 footer .flogo{font-family:var(--font-body);font-weight:700;font-size:1.25rem;color:var(--color-white);margin-bottom:8px}
 footer .flogo .d{color:var(--color-accent)} footer .flogo .dot{color:var(--color-surface-alt);margin:0 .1em}
 footer .tagline{color:var(--color-surface-alt);margin-bottom:6px}
