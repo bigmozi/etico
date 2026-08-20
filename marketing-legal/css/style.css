@@ -128,9 +128,8 @@ header{
   border-bottom:1px solid rgba(var(--color-border-on-brand-rgb),.14);
 }
 .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:var(--font-body);font-weight:700;font-size:1.18rem;letter-spacing:-.01em;color:var(--color-text-on-brand)}
-.logo .d{color:var(--color-brand-accent)}
-.logo .dot{color:var(--color-brand-neutral);margin:0 .12em}
+.logo{display:inline-flex;align-items:center}
+.logo img{display:block;height:30px;width:auto}
 .btn{
   display:inline-block;font-family:var(--font-body);font-weight:600;font-size:.92rem;
   border:none;border-radius:var(--radius-pill);padding:13px 26px;cursor:pointer;
@@ -413,8 +412,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 
 /* ---------- FOOTER ---------- */
 footer{background:var(--color-brand-primary-strong);color:var(--color-text-on-brand-5);padding:60px 0 48px;font-size:.85rem}
-footer .flogo{font-family:var(--font-body);font-weight:700;font-size:1.25rem;color:var(--color-text-on-brand);margin-bottom:8px}
-footer .flogo .d{color:var(--color-brand-accent)} footer .flogo .dot{color:var(--color-brand-neutral);margin:0 .1em}
+footer .flogo{margin-bottom:12px}
+footer .flogo img{display:block;height:28px;width:auto}
 footer .tagline{color:var(--color-brand-neutral);margin-bottom:6px}
 footer .founder{color:var(--color-brand-accent);font-weight:600;margin:18px 0 14px}
 footer .disc{font-size:.78rem;color:var(--color-text-on-brand-7);line-height:1.6;max-width:90ch;border-top:1px solid rgba(var(--color-overlay-on-brand-rgb),.08);padding-top:18px;margin-top:18px}
