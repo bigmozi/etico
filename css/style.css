@@ -148,7 +148,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 
 /* ---------- hero ---------- */
 .hero{position:relative;background:var(--color-brand-primary);color:var(--color-white);overflow:hidden}
-.hero-photo{position:absolute;inset:0;background-image:url('../img/escritorio-sala.jpeg');background-size:cover;background-position:center 40%;opacity:.4;z-index:0}
+.hero-photo{position:absolute;inset:0;background-image:url('../img/escritorio-computadores.jpeg');background-size:cover;background-position:center 40%;opacity:.4;z-index:0}
 .hero-overlay{
   position:absolute;inset:0;z-index:1;
   background:radial-gradient(120% 120% at 80% -10%,var(--color-brand-primary-mid) 0%,var(--color-brand-primary) 48%,var(--color-brand-primary-deep) 100%);
