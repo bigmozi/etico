@@ -477,7 +477,7 @@ select option{color:#111}
 .page-hero .lead{color:var(--color-text-inverse-strong);max-width:56ch;margin-top:14px}
 
 .page-hero-light{background:var(--color-surface);color:var(--color-text)}
-.page-hero-light .tag-pill{border-color:var(--color-accent);color:var(--color-brand-primary);font-weight:400}
+.page-hero-light .tag-pill{border-color:var(--color-accent);color:var(--color-brand-primary);font-weight:600}
 .page-hero-light .tag-pill b{color:var(--color-brand-primary)}
 .page-hero-light h1{color:var(--color-brand-primary)}
 .page-hero-light h1 .accent{color:var(--color-accent)}
