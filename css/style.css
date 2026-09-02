@@ -476,6 +476,12 @@ select option{color:#111}
 .page-hero .wrap{padding-top:52px;padding-bottom:52px}
 .page-hero .lead{color:var(--color-text-inverse-strong);max-width:56ch;margin-top:14px}
 
+.page-hero-light{background:var(--color-surface);color:var(--color-text)}
+.page-hero-light .tag-pill{border-color:var(--color-accent);color:var(--color-brand-primary)}
+.page-hero-light .tag-pill b{color:var(--color-brand-primary)}
+.page-hero-light h1{color:var(--color-brand-primary)}
+.page-hero-light h1 .accent{color:var(--color-accent)}
+
 /* ---------- footer ---------- */
 footer{background:var(--color-brand-primary-deep);color:var(--color-text-inverse-faint);padding:60px 0 40px;font-size:.85rem}
 .foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:24px;margin-bottom:36px}
