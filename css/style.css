@@ -495,6 +495,8 @@ footer a{color:var(--color-text-inverse-faint);text-decoration:none}
 footer a:hover{color:var(--color-accent)}
 .social-link{display:inline-flex;align-items:center;gap:8px}
 .social-link svg{width:14px;height:14px;flex:none}
+.social-row{display:flex;flex-direction:row;align-items:center;gap:16px}
+.social-row .wa-icon svg{width:18px;height:18px}
 .foot-bottom{background:rgba(var(--color-white-rgb),.04);border-radius:var(--radius-pill);padding:10px 22px;display:flex;justify-content:space-between;
   flex-wrap:wrap;gap:10px;font-size:.72rem;color:var(--color-text-inverse-dim)}
 .foot-credit{margin-left:auto}
