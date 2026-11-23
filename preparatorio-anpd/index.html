@@ -181,6 +181,7 @@ h1 em,h2 em{font-style:normal;color:var(--dado)}
 .video-sec{background:var(--papel);padding-top:clamp(64px,9vw,104px);padding-bottom:clamp(64px,9vw,104px)}
 .video-sec[hidden]{display:none}
 .video-frame{margin-top:48px;aspect-ratio:16/9;background:var(--azul-esc);border-radius:8px;overflow:hidden}
+.video-ph{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--verde);font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:20px;background-image:radial-gradient(rgba(95,174,78,.2) 1.6px,transparent 2px);background-size:40px 40px}
 .video-frame iframe{width:100%;height:100%;border:0;display:block}
 
 .lista{margin-top:56px;padding:36px clamp(22px,4vw,40px) 40px;background:var(--azul-esc);border-radius:8px;border-top:7px solid var(--verde);text-align:left;scroll-margin-top:90px}
@@ -297,12 +298,13 @@ h1 em,h2 em{font-style:normal;color:var(--dado)}
   </div>
 </section>
 
-<!-- VÍDEO: seção oculta até a gravação. Para ativar: colar o embed no lugar do comentário e remover o atributo hidden. -->
-<section class="video-sec" id="video" hidden>
+<!-- VÍDEO: template visível. Quando o vídeo existir: descomentar o <iframe>, colocar a URL do embed e apagar o <div class="video-ph">. -->
+<section class="video-sec" id="video">
   <div class="wrap">
     <span class="eyebrow">Conheça o curso</span>
     <h2 class="h2 h2--largo">Simone Bastos e Maria Clara Seixas apresentam o <em>Preparatório ANPD</em></h2>
     <div class="video-frame">
+      <div class="video-ph"><svg viewBox="0 0 24 24" width="56" height="56" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor"/></svg><span>Vídeo de apresentação em breve</span></div>
       <!-- <iframe src="URL-DO-EMBED" title="Apresentação do Preparatório ANPD" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe> -->
     </div>
   </div>
@@ -849,9 +851,10 @@ h1 em,h2 em{font-style:normal;color:var(--dado)}
     <div class="rodape-in">
       <div><strong style="color:rgba(226,219,203,.9);font-weight:500">Digital Ético LTDA</strong> · CNPJ 66.863.514/0001-89 · Salvador/BA</div>
       <div class="rodape-links">
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Termos de Uso</a>
-        <a href="#">Contato</a>
+        <a href="https://digitaletico.com.br/documentos/codigo-de-etica.html">Código de Ética e Conduta</a>
+        <a href="https://digitaletico.com.br/documentos/politica-de-privacidade.html">Política de Privacidade</a>
+        <a href="mailto:contato@digitaletico.com.br">DPO: Simone Bastos</a>
+        <a href="https://digitaletico.com.br/documentos/manifesto-ia.html">Manifesto de IA</a>
       </div>
     </div>
     <p class="rodape-legal">
@@ -898,9 +901,10 @@ h1 em,h2 em{font-style:normal;color:var(--dado)}
     var url=f.getAttribute('data-endpoint');
     if(!url){ dizer('Cadastro indisponível no momento. Tente novamente em instantes.','erro'); console.warn('Lista de espera: data-endpoint do formulário #lista está vazio.'); return; }
     btn.disabled=true; dizer('Enviando…');
-    fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({nome:nome,email:email,whatsapp:f.whatsapp.value.trim(),aceite:true,origem:'lp-preparatorio-anpd',data:new Date().toISOString()})})
-    .then(function(r){ if(!r.ok) throw 0; f.reset(); dizer('Pronto. Você está na lista e recebe o aviso de abertura.','ok'); })
+    // Apps Script não responde CORS: envio em no-cors (text/plain evita preflight). A resposta é opaca.
+    fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify({nome:nome,email:email,whatsapp:f.whatsapp.value.trim(),aceite:true,origem:'lp-preparatorio-anpd'})})
+    .then(function(){ f.reset(); dizer('Pronto. Você está na lista e recebe o aviso de abertura.','ok'); })
     .catch(function(){ dizer('Não foi possível enviar. Tente novamente.','erro'); })
     .then(function(){ btn.disabled=false; });
   });
