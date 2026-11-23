@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preparatório ANPD — Especialista em Regulação de Proteção de Dados | Digital Ético</title>
+<meta name="description" content="Curso preparatório regulatório para o primeiro concurso da ANPD: LGPD, atos da Agência, ECA Digital, plataformas, IA e regulação. Com Simone Bastos e Maria Clara Seixas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Identidade do Preparatório ANPD: azul-marinho, verde-limão e verde */
+  --azul:#001d49; --azul-esc:#021032; --ouro:#d4e157; --dado:#0b6e45; --ceu:#e2dacb;
+  --areia:#d3c4a8; --areia-luz:#f6f1e8; --papel:#faf8f4;
+  --verde:#d4e157; --verde-esc:#c5d244; --mata:#0a4f37; --folha:#5fae4e;
+  --tinta:#001d49; --tinta-suave:#4b5a73;
+  --linha:rgba(0,29,73,.14); --linha-clara:rgba(0,29,73,.08);
+  --display:'Alexandria',-apple-system,'Segoe UI',sans-serif;
+  --corpo:'Alexandria',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --max:1080px; --gut:clamp(22px,5vw,44px); --sec:clamp(80px,12vw,150px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--corpo);
+  font-weight:400;font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:1.08;margin:0;letter-spacing:-.03em;color:var(--azul)}
+p{margin:0 0 1.15em}
+p:last-child{margin-bottom:0}
+strong{font-weight:600;color:var(--azul)}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
+section{padding-top:var(--sec);padding-bottom:var(--sec)}
+
+.eyebrow{font-family:var(--corpo);font-size:11.5px;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--dado);margin:0 0 26px;display:block}
+.h2{font-size:clamp(30px,5vw,52px);max-width:16ch}
+.h2--largo{max-width:24ch}
+.lead{font-size:clamp(17px,1.9vw,20px);line-height:1.62;color:var(--tinta-suave);max-width:62ch;margin-top:28px}
+.claro .lead{color:#b9c6da}
+.claro .eyebrow{color:var(--ouro)}
+.claro h2,.claro h3{color:#fff}
+h1 em,h2 em{font-style:normal;color:var(--dado)}
+.claro h1 em,.claro h2 em,.oferta h2 em,.duvidas h2 em{color:var(--verde)}
+.claro strong{color:#fff}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--corpo);
+  font-weight:700;font-size:15.5px;padding:20px 36px;border-radius:8px;text-decoration:none;
+  border:1px solid transparent;cursor:pointer;text-align:center;
+  transition:background .2s ease,transform .2s ease,border-color .2s ease,color .2s ease}
+.btn--cta{background:var(--verde);color:var(--azul);font-weight:800}
+.btn--cta:hover{background:var(--verde-esc);transform:translateY(-2px)}
+.btn--linha{background:transparent;color:#fff;border:2px solid rgba(212,224,86,.45);font-weight:800}
+.btn--linha:hover{border-color:var(--verde);color:#fff}
+.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--dado);outline-offset:4px}
+.nota{font-size:13px;color:var(--tinta-suave);margin-top:16px}
+.claro .nota{color:rgba(226,219,203,.7)}
+.pend{opacity:.6}
+
+.topo{position:sticky;top:0;z-index:60;background:rgba(249,248,244,.95);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--linha)}
+.topo-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 0}
+.marca img{height:38px;width:auto}
+.topo .btn{padding:12px 24px;font-size:13.5px}
+
+.faixa{height:6px;background:var(--verde)}
+.hero{background:var(--azul);color:var(--areia-luz);position:relative;overflow:hidden;
+  padding-top:clamp(76px,11vw,136px);padding-bottom:clamp(76px,11vw,136px)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(95,174,78,.2) 1.6px,transparent 2px);
+  background-size:40px 40px;mask-image:linear-gradient(100deg,transparent 30%,#000 100%);-webkit-mask-image:linear-gradient(100deg,transparent 30%,#000 100%)}
+.hero::after{content:"";position:absolute;right:0;top:0;bottom:0;width:clamp(14px,1.6vw,22px);pointer-events:none;
+  background:linear-gradient(90deg,var(--dado) 0 30%,var(--folha) 30% 62%,var(--verde) 62% 100%)}
+.hero-in{position:relative;z-index:2;max-width:860px}
+.hero h1{font-size:clamp(36px,6.4vw,70px);color:#fff;line-height:1.05;margin:0;letter-spacing:-.035em;font-weight:900}
+.hero-sub{font-size:clamp(17px,2.1vw,21px);line-height:1.6;color:#b9c6da;
+  max-width:56ch;margin-top:32px;font-weight:400}
+.hero-acoes{display:flex;flex-wrap:wrap;gap:14px;margin-top:44px}
+.hero-specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px 28px;
+  margin-top:56px;padding-top:30px;border-top:1px solid rgba(226,219,203,.2)}
+.spec b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(22px,2.6vw,28px);
+  color:var(--verde);line-height:1.1;letter-spacing:-.02em}
+.spec span{display:block;font-size:13px;color:rgba(226,219,203,.85);margin-top:6px;line-height:1.45}
+
+.carreira-frase{font-family:var(--display);font-size:clamp(21px,2.8vw,30px);line-height:1.35;
+  color:var(--dado);font-weight:800;max-width:32ch;margin-top:56px}
+.ganhos{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-top:64px}
+.ganho{background:var(--azul);border-radius:8px;padding:34px 30px 36px}
+.ganho h3{font-size:19px;color:#fff;margin-bottom:12px;letter-spacing:-.01em;font-weight:800}
+.ganho .num{font-family:var(--display);font-weight:900;font-size:clamp(25px,2.6vw,30px);color:var(--verde);
+  line-height:1.1;letter-spacing:-.03em;margin-bottom:8px}
+.ganho p{font-size:15px;line-height:1.62;color:#b9c6da}
+.ganho::before{content:"";display:block;width:32px;height:22px;margin-bottom:22px;
+  background:linear-gradient(var(--dado),var(--dado)) 0 100%/9px 8px no-repeat,
+             linear-gradient(var(--folha),var(--folha)) 11.5px 100%/9px 15px no-repeat,
+             linear-gradient(var(--verde),var(--verde)) 23px 100%/9px 22px no-repeat}
+
+.crono{background:var(--papel);padding-top:clamp(64px,9vw,104px);padding-bottom:clamp(64px,9vw,104px)}
+.marcos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:52px}
+.marco{padding:26px 24px 30px;background:var(--areia-luz);border-top:7px solid var(--ceu);border-radius:0 0 8px 8px}
+.marco.dest{border-top-color:var(--verde);background:var(--mata)}
+.marco b{display:block;font-family:var(--display);font-weight:900;font-size:24px;color:var(--azul);letter-spacing:-.03em;line-height:1.2}
+.marco span{display:block;font-size:14.5px;color:var(--tinta-suave);margin-top:8px;line-height:1.5}
+.marco.dest b{color:var(--verde)}
+.marco.dest span{color:rgba(245,241,232,.88)}
+.crono-nota{font-size:12.5px;color:var(--tinta-suave);margin-top:36px;max-width:78ch;line-height:1.6}
+
+.grade{background:var(--areia-luz)}
+.grade-nota{font-size:15px;color:var(--tinta-suave);max-width:58ch;margin-top:26px}
+.modulos{margin-top:64px;border-top:2px solid var(--azul)}
+.modulo{border-bottom:1px solid var(--linha)}
+.modulo summary{list-style:none;cursor:pointer;padding:28px 0;
+  display:grid;grid-template-columns:96px 1fr 26px;gap:28px;align-items:baseline}
+.modulo summary::-webkit-details-marker{display:none}
+.mod-num{font-family:var(--corpo);font-size:12px;font-weight:800;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--dado)}
+.mod-tit{font-family:var(--display);font-weight:800;line-height:1.2;
+  font-size:clamp(19px,2.3vw,25px);color:var(--azul);letter-spacing:-.02em}
+.mod-sinal{justify-self:end;width:14px;height:14px;position:relative;align-self:center}
+.mod-sinal::before,.mod-sinal::after{content:"";position:absolute;background:var(--dado);
+  left:0;top:6px;width:14px;height:2.5px}
+.mod-sinal::after{transform:rotate(90deg);transition:opacity .25s ease}
+.modulo[open] .mod-sinal::after{opacity:0}
+.modulo summary:hover .mod-tit,.modulo[open] .mod-tit{color:var(--dado)}
+.aulas{padding:0 0 32px 124px;margin:0;list-style:none;max-width:700px}
+.aulas li{padding:10px 0;font-size:15.5px;line-height:1.6;color:var(--tinta-suave);
+  border-top:1px solid var(--linha-clara)}
+.aulas li:first-child{border-top:0;padding-top:0}
+@media (max-width:720px){
+  .modulo summary{grid-template-columns:1fr 26px;gap:10px 16px}
+  .mod-num{grid-column:1/-1}
+  .aulas{padding-left:0}
+}
+
+.perfis{margin-top:64px;border-top:1px solid var(--linha)}
+.perfil{padding:28px 0;border-bottom:1px solid var(--linha);max-width:72ch}
+.perfil h3{font-family:var(--corpo);font-weight:800;font-size:17px;color:var(--azul);
+  letter-spacing:0;line-height:1.5;margin-bottom:10px}
+.perfil p{font-size:15.5px;line-height:1.62;color:var(--tinta-suave)}
+
+.duvidas{background:var(--azul);color:var(--areia-luz)}
+.duvida{margin-top:60px;padding-top:44px;border-top:1px solid rgba(226,219,203,.2);max-width:66ch}
+.duvida:first-of-type{border-top:0;padding-top:0}
+.duvida h3{font-family:var(--display);font-size:clamp(20px,2.5vw,27px);color:var(--verde);
+  line-height:1.25;margin-bottom:24px;max-width:28ch}
+.duvida p{font-size:15.5px;line-height:1.7;color:#b9c6da}
+.duvida-selo{margin-top:24px;font-size:16px;color:var(--areia);font-weight:500}
+
+.materiais{background:var(--areia-luz)}
+.kits{margin-top:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:44px 40px}
+.kit h3{font-family:var(--corpo);font-weight:800;font-size:16.5px;color:var(--azul);
+  letter-spacing:0;margin-bottom:10px;line-height:1.4}
+.kit p{font-size:15px;line-height:1.6;color:var(--tinta-suave)}
+.kit::before{content:"";display:block;width:28px;height:5px;background:var(--dado);margin-bottom:20px}
+
+.docentes{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,6vw,72px);margin-top:64px;align-items:start}
+.expert{background:var(--areia-luz)}
+.expert .docente-foto{background:var(--papel)}
+.docente-foto{background:var(--areia-luz);border:1px solid var(--ceu);border-radius:8px;box-shadow:9px 9px 0 var(--dado);
+  aspect-ratio:4/5;max-width:360px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.docente-foto img{width:100%;height:100%;object-fit:cover}
+.docente-foto .ph{font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tinta-suave);text-align:center;padding:20px;line-height:1.8}
+.docente h3{font-size:clamp(20px,3.2vw,34px);color:var(--azul);margin-top:30px}
+.docente-tag{font-family:var(--display);font-size:clamp(18px,2vw,21px);color:var(--azul);
+  font-weight:700;line-height:1.35;margin-top:14px;max-width:30ch}
+.docente p.bio{font-size:clamp(13.5px,1.6vw,15.5px);line-height:1.68;color:var(--tinta-suave);margin-top:20px;max-width:52ch}
+.creds{margin-top:26px;padding-top:22px;border-top:1px solid var(--linha);display:grid;gap:12px;max-width:52ch}
+.cred{font-size:clamp(12.5px,1.5vw,14.5px);color:var(--tinta-suave);line-height:1.55;padding-left:20px;position:relative}
+.cred::before{content:"";position:absolute;left:0;top:.45em;width:10px;height:10px;background:var(--dado)}
+.equipe-nota{margin-top:64px;padding:30px 34px;border-left:8px solid var(--verde);border-radius:8px;background:var(--azul);
+  font-size:17px;color:#fff;font-weight:500;max-width:64ch;line-height:1.6}
+
+.aviso{background:#FFF8E8;border:1px solid #c6872a;border-radius:4px;padding:20px 24px;
+  font-size:13.5px;color:#6B4E12;margin-top:56px;line-height:1.65}
+.aviso b{font-weight:600;color:#6B4E12}
+.aviso ul{margin:10px 0 0;padding-left:18px}
+
+
+.video-sec{background:var(--papel);padding-top:clamp(64px,9vw,104px);padding-bottom:clamp(64px,9vw,104px)}
+.video-sec[hidden]{display:none}
+.video-frame{margin-top:48px;aspect-ratio:16/9;background:var(--azul-esc);border-radius:8px;overflow:hidden}
+.video-frame iframe{width:100%;height:100%;border:0;display:block}
+
+.lista{margin-top:56px;padding:36px clamp(22px,4vw,40px) 40px;background:var(--azul-esc);border-radius:8px;border-top:7px solid var(--verde);text-align:left;scroll-margin-top:90px}
+.lista-tit{font-size:clamp(22px,3vw,28px);color:#fff;margin:0 0 10px;letter-spacing:-.02em}
+.lista-sub{font-size:15.5px;color:#b9c6da;margin:0 0 28px}
+.campo{margin-bottom:18px}
+.campo label{display:block;font-size:13px;font-weight:700;color:var(--areia-luz);margin-bottom:8px}
+.campo label span{font-weight:400;color:#b9c6da}
+.campo input{width:100%;font:inherit;font-size:16px;color:#fff;background:var(--azul);border:1px solid #1e3a6b;border-radius:8px;padding:15px 16px}
+.campo input:focus-visible{outline:2px solid var(--verde);outline-offset:2px;border-color:var(--verde)}
+.campo input[aria-invalid="true"]{border-color:#ff9b8a}
+.aceite{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;font-size:13.5px;line-height:1.55;color:#b9c6da;margin:8px 0 26px}
+.aceite input{width:18px;height:18px;margin:3px 0 0;accent-color:var(--verde)}
+.aceite a{color:var(--verde)}
+.lista .btn{width:100%}
+.lista-msg{font-size:14.5px;margin:18px 0 0;min-height:1.6em;color:#b9c6da}
+.lista-msg.ok{color:var(--verde);font-weight:700}
+.lista-msg.erro{color:#ff9b8a;font-weight:700}
+
+.oferta{background:var(--azul);color:var(--areia-luz)}
+.oferta-in{max-width:720px;margin:0 auto;text-align:center}
+.oferta .h2{max-width:none;margin:0 auto}
+.oferta .lead{margin-left:auto;margin-right:auto}
+.caixa{margin-top:60px;text-align:left}
+.inclui{margin:0;padding:0;list-style:none;display:grid;gap:14px}
+.inclui li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:15.5px;line-height:1.55;
+  color:rgba(245,241,232,.88);padding-bottom:14px;border-bottom:1px solid rgba(226,219,203,.14)}
+.inclui li::before{content:"";width:10px;height:10px;background:var(--verde);margin-top:.5em}
+.preco{margin-top:56px;text-align:center}
+.preco-label{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--areia);margin-bottom:14px}
+.preco-valor{font-family:var(--display);font-size:clamp(46px,8vw,68px);color:var(--verde);
+  font-weight:900;line-height:1;letter-spacing:-.04em}
+.preco-valor small{font-size:.38em;font-weight:400;letter-spacing:0;vertical-align:.5em;margin-right:4px}
+.preco-parcela{font-size:14px;color:rgba(245,241,232,.72);margin-top:14px}
+.oferta .btn--cta{width:100%;max-width:400px;margin:36px auto 0;display:flex}
+.garantia{font-size:13.5px;color:rgba(245,241,232,.7);margin-top:44px;padding-top:32px;
+  border-top:1px solid rgba(226,219,203,.2);text-align:left;line-height:1.7}
+.garantia b{color:#fff;font-weight:500}
+
+.perguntas{margin-top:64px;border-top:1px solid var(--linha);max-width:800px}
+.pergunta{border-bottom:1px solid var(--linha)}
+.pergunta summary{list-style:none;cursor:pointer;padding:26px 44px 26px 0;position:relative;
+  font-family:var(--display);font-size:clamp(17px,2vw,21px);font-weight:800;
+  color:var(--azul);line-height:1.35;letter-spacing:-.015em}
+.pergunta summary::-webkit-details-marker{display:none}
+.pergunta summary::after{content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  font-family:var(--corpo);font-size:24px;font-weight:600;color:var(--dado)}
+.pergunta[open] summary::after{content:"–"}
+.pergunta-corpo{padding:0 0 28px;font-size:15.5px;line-height:1.68;color:var(--tinta-suave);max-width:66ch}
+
+.fecho{background:var(--areia-luz);text-align:center}
+.fecho .h2{max-width:22ch;margin:0 auto}
+.fecho .lead{margin:28px auto 44px}
+
+.rodape{background:var(--azul-esc);color:rgba(226,219,203,.6);padding:44px 0;font-size:13px}
+.rodape-in{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between}
+.rodape a{color:rgba(226,219,203,.78);text-decoration:none}
+.rodape a:hover{color:#fff;text-decoration:underline}
+.rodape-links{display:flex;flex-wrap:wrap;gap:24px}
+.rodape-legal{margin-top:24px;padding-top:22px;border-top:1px solid rgba(226,219,203,.16);
+  font-size:12.5px;line-height:1.65;max-width:92ch}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  background:rgba(0,29,73,.98);backdrop-filter:blur(8px);
+  padding:12px var(--gut) calc(12px + env(safe-area-inset-bottom));
+  border-top:1px solid rgba(226,219,203,.18)}
+.barra .btn{width:100%;padding:16px 20px}
+@media (max-width:720px){
+  .barra{display:block}
+  body{padding-bottom:82px}
+  .topo .btn{display:none}
+}
+
+.rev{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rev.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rev{opacity:1;transform:none;transition:none}
+  .btn:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap topo-in">
+    <a class="marca" href="#topo" aria-label="Digital Ético"><img src="data:image/png;base64,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" alt="Digital Ético"></a>
+    <a class="btn btn--cta" href="#lista">Entrar na lista de espera</a>
+  </div>
+</header>
+
+<div class="faixa" aria-hidden="true"></div>
+
+<!-- 1 HERO -->
+<section class="hero claro" id="topo">
+  <div class="wrap hero-in">
+    <span class="eyebrow">Preparatório ANPD · Especialista em Regulação de Proteção de Dados</span>
+    <h1>Uma carreira federal em <em>proteção de dados</em> começa neste concurso</h1>
+    <p class="hero-sub">
+      A Agência Nacional de Proteção de Dados vai realizar o primeiro concurso da sua
+      carreira própria. Este é o preparatório regulatório para quem quer disputar uma
+      das vagas: LGPD, atos da Agência, ECA Digital, plataformas, inteligência
+      artificial e regulação, com as docentes Simone Bastos e Maria Clara Seixas.
+    </p>
+    <div class="hero-acoes">
+      <a class="btn btn--cta" href="#lista">Entrar na lista de espera</a>
+      <a class="btn btn--linha" href="#grade">Ver o conteúdo</a>
+    </div>
+    <div class="hero-specs">
+      <div class="spec"><b>50 vagas</b><span>de nível superior, com cadastro de reserva</span></div>
+      <div class="spec"><b>R$ 17.726,42</b><span>de subsídio inicial</span></div>
+      <div class="spec"><b>Cebraspe</b><span>definido como banca organizadora</span></div>
+      <div class="spec"><b>18/04/2027</b><span>data estimada das provas objetiva e discursiva</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VÍDEO: seção oculta até a gravação. Para ativar: colar o embed no lugar do comentário e remover o atributo hidden. -->
+<section class="video-sec" id="video" hidden>
+  <div class="wrap">
+    <span class="eyebrow">Conheça o curso</span>
+    <h2 class="h2 h2--largo">Simone Bastos e Maria Clara Seixas apresentam o <em>Preparatório ANPD</em></h2>
+    <div class="video-frame">
+      <!-- <iframe src="URL-DO-EMBED" title="Apresentação do Preparatório ANPD" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe> -->
+    </div>
+  </div>
+</section>
+
+<!-- 2 A CARREIRA -->
+<section class="carreira">
+  <div class="wrap">
+    <span class="eyebrow rev">A carreira</span>
+    <h2 class="h2 h2--largo rev">Uma carreira federal nova, em uma Agência que só cresce em <em>atribuições</em></h2>
+    <p class="lead rev">
+      Em 2026, a Lei nº 15.352 transformou a ANPD em agência reguladora e criou a
+      carreira de Especialista em Regulação de Proteção de Dados. Além de regular e
+      fiscalizar a LGPD, a Agência passou a responder pela proteção de crianças e
+      adolescentes no ambiente digital, com o ECA Digital. O primeiro concurso
+      seleciona quem vai construir essa estrutura desde o início.
+    </p>
+
+    <div class="ganhos">
+      <div class="ganho rev">
+        <div class="num">R$ 17.726,42</div>
+        <h3>Subsídio inicial</h3>
+        <p>Remuneração de entrada do cargo de Especialista em Regulação de Proteção de Dados, de nível superior.</p>
+      </div>
+      <div class="ganho rev">
+        <div class="num">Cargo efetivo</div>
+        <h3>Serviço público federal</h3>
+        <p>Regime estatutário, em carreira com estabilidade, adquirida após o estágio probatório, e lotação em Brasília.</p>
+      </div>
+      <div class="ganho rev">
+        <div class="num">200 cargos</div>
+        <h3>Carreira em formação</h3>
+        <p>A lei criou 200 cargos. Este primeiro concurso foi autorizado para 50 vagas, com cadastro de reserva de até três vezes esse número.</p>
+      </div>
+      <div class="ganho rev">
+        <div class="num">Regulação</div>
+        <h3>Trabalho de impacto</h3>
+        <p>Normatização, fiscalização e processos sancionadores em dados pessoais, ECA Digital e plataformas digitais.</p>
+      </div>
+    </div>
+
+    <p class="carreira-frase rev">
+      Para quem vem dos concursos ou do mercado de privacidade, é uma carreira federal que está começando agora
+    </p>
+  </div>
+</section>
+
+<!-- QUEM ENSINA -->
+<section class="expert" id="docentes">
+  <div class="wrap">
+    <span class="eyebrow rev">Quem ensina</span>
+    <h2 class="h2 h2--largo rev">Simone Bastos e Maria Clara Seixas conduzem a sua <em>preparação</em></h2>
+    <p class="lead rev">
+      Duas docentes que trabalham com proteção de dados e regulação digital todos os
+      dias e que ensinam a lei em linguagem clara, sem perder a precisão que a banca
+      exige.
+    </p>
+
+    <div class="docentes">
+      <div class="docente rev">
+        <div class="docente-foto"><img src="img/simone-bastos.jpg" alt="Simone Bastos" width="900" height="1350" loading="lazy" style="object-position:50% 18%"></div>
+        <h3>Simone Bastos</h3>
+        <p class="docente-tag">20 anos ao lado de empresas, traduzindo a lei em decisão</p>
+        <p class="bio">
+          Advogada com atuação em Privacidade, Proteção de Dados e Governança. Fundou a
+          Digital Ético e atua como encarregada de dados (DPO) de organizações
+          privadas, lidando diretamente com a LGPD, o ECA Digital e os atos da Agência.
+        </p>
+        <div class="creds">
+          <div class="cred">Certificações CDPO (IAPP), CPC-PD, CPC-A e EXIN em Privacy &amp; Data Protection e Information Security Management</div>
+          <div class="cred">Membro da ANADD, do CWC e da Comissão de Compliance da OAB</div>
+          <div class="cred">Fonte de veículos de imprensa em temas de Direito Digital</div>
+        </div>
+      </div>
+
+      <div class="docente rev">
+        <div class="docente-foto"><img src="img/maria-clara-seixas.jpg" alt="Maria Clara Seixas" width="900" height="1350" loading="lazy" style="object-position:50% 18%"></div>
+        <h3>Maria Clara Seixas</h3>
+        <p class="docente-tag">Premiada como uma das advogadas mais admiradas do país em Direito Digital</p>
+        <p class="bio">
+          Advogada, professora de LGPD e inteligência artificial do Insper e da XP
+          Educação. Atua como encarregada de dados (DPO) de grandes corporações, com
+          atuação direta junto à Agência.
+        </p>
+        <div class="creds">
+          <div class="cred">Mestre em Direito pela UFBA, com pesquisa em inteligência artificial e LGPD</div>
+          <div class="cred">Certificações Privacy and Data Protection Practitioner (PDPP) e Privacy by Design/ISO 31700, pela Complete Privacy</div>
+          <div class="cred">Presidente da Comissão de Inteligência Artificial da OAB/BA</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="equipe-nota rev">
+      O corpo docente se completa com professores convidados, especialistas em
+      regulação e em temas específicos da grade.
+    </p>
+  </div>
+</section>
+
+<!-- CRONOGRAMA DO CONCURSO -->
+<section class="crono">
+  <div class="wrap">
+    <span class="eyebrow rev">O concurso</span>
+    <h2 class="h2 h2--largo rev">O calendário já tem <em>datas estimadas</em></h2>
+    <div class="marcos">
+      <div class="marco dest"><b>18/12/2026</b><span>Publicação do edital de abertura</span></div>
+      <div class="marco dest"><b>18/04/2027</b><span>Provas objetiva e discursiva</span></div>
+      <div class="marco"><b>28/08 a 13/11/2027</b><span>Curso de formação</span></div>
+      <div class="marco"><b>14/11/2027</b><span>Homologação do resultado final</span></div>
+    </div>
+    <p class="crono-nota">
+      Datas estimadas no despacho da ANPD que autorizou a contratação do Cebraspe,
+      sujeitas a alteração. As etapas, as disciplinas e os requisitos do cargo só ficam
+      definidos com a publicação do edital. Concurso autorizado pela Portaria MGI
+      nº 5.092/2026.
+    </p>
+  </div>
+</section>
+
+<!-- 4 CONTEÚDO -->
+<section class="grade" id="grade">
+  <div class="wrap">
+    <span class="eyebrow rev">O conteúdo</span>
+    <h2 class="h2 h2--largo rev"><em>Doze módulos</em> regulatórios, da LGPD ao processo sancionador</h2>
+    <p class="grade-nota rev">
+      O curso percorre o que define o trabalho de um Especialista em Regulação de
+      Proteção de Dados: a lei, os atos da Agência, as novas competências e a teoria
+      regulatória que sustenta tudo isso. Nossa grade pode ser revisada com a
+      publicação do edital.
+    </p>
+
+    <div class="modulos rev">
+
+      <details class="modulo" open>
+        <summary>
+          <span class="mod-num">Módulo 1</span>
+          <span class="mod-tit">Fundamentos da proteção de dados</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>Da privacidade à proteção de dados: evolução histórica e conceitos</li>
+          <li>A proteção de dados como direito fundamental na Constituição</li>
+          <li>Referências internacionais e o modelo europeu em perspectiva comparada</li>
+        </ul>
+      </details>
+
+      <details class="modulo">
+        <summary>
+          <span class="mod-num">Módulo 2</span>
+          <span class="mod-tit">LGPD: conceitos, princípios e hipóteses legais</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>Âmbito de aplicação, definições e princípios</li>
+          <li>Hipóteses legais de tratamento e o legítimo interesse</li>
+          <li>Dados pessoais sensíveis</li>
+          <li>Tratamento de dados de crianças e adolescentes</li>
+        </ul>
+      </details>
+
+      <details class="modulo">
+        <summary>
+          <span class="mod-num">Módulo 3</span>
+          <span class="mod-tit">Direitos do titular, agentes de tratamento e responsabilidade</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>Direitos do titular e revisão de decisões automatizadas</li>
+          <li>Controlador, operador e encarregado: papéis e obrigações</li>
+          <li>Responsabilidade e ressarcimento de danos</li>
+        </ul>
+      </details>
+
+      <details class="modulo">
+        <summary>
+          <span class="mod-num">Módulo 4</span>
+          <span class="mod-tit">Segurança, incidentes e governança</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>Medidas de segurança e boas práticas</li>
+          <li>Comunicação de incidente de segurança à Agência e aos titulares</li>
+          <li>Relatório de impacto à proteção de dados pessoais</li>
+          <li>Programa de governança em privacidade</li>
+        </ul>
+      </details>
+
+      <details class="modulo">
+        <summary>
+          <span class="mod-num">Módulo 5</span>
+          <span class="mod-tit">Poder Público e transferência internacional</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>Tratamento de dados pessoais pelo Poder Público</li>
+          <li>Compartilhamento de dados entre órgãos e com entes privados</li>
+          <li>Mecanismos de transferência internacional de dados</li>
+        </ul>
+      </details>
+
+      <details class="modulo">
+        <summary>
+          <span class="mod-num">Módulo 6</span>
+          <span class="mod-tit">A ANPD como Agência</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>A Lei nº 15.352/2026 e a transformação em agência reguladora</li>
+          <li>Estrutura, competências e processo decisório</li>
+          <li>A carreira de Especialista em Regulação de Proteção de Dados</li>
+        </ul>
+      </details>
+
+      <details class="modulo">
+        <summary>
+          <span class="mod-num">Módulo 7</span>
+          <span class="mod-tit">Resoluções e documentos da Agência</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>Regulamentos: agentes de pequeno porte, encarregado, incidentes e transferência internacional</li>
+          <li>Guias orientativos e enunciados</li>
+          <li>Notas técnicas e agenda regulatória</li>
+          <li>Como a banca costuma cobrar atos infralegais</li>
+        </ul>
+      </details>
+
+      <details class="modulo">
+        <summary>
+          <span class="mod-num">Módulo 8</span>
+          <span class="mod-tit">Fiscalização e processo sancionador</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>O processo de fiscalização e a regulação responsiva</li>
+          <li>Processo administrativo sancionador</li>
+          <li>Dosimetria e aplicação de sanções</li>
+          <li>Decisões da Agência como material de estudo</li>
+        </ul>
+      </details>
+
+      <details class="modulo">
+        <summary>
+          <span class="mod-num">Módulo 9</span>
+          <span class="mod-tit">ECA Digital</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>A Lei nº 15.211/2025: objeto, destinatários e deveres</li>
+          <li>Aferição de idade e supervisão parental</li>
+          <li>A atuação da Agência na proteção de crianças e adolescentes on-line</li>
+        </ul>
+      </details>
+
+      <details class="modulo">
+        <summary>
+          <span class="mod-num">Módulo 10</span>
+          <span class="mod-tit">Plataformas digitais e Marco Civil da Internet</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>A Lei nº 12.965/2014: princípios, direitos e garantias</li>
+          <li>Guarda de registros e proteção de dados na internet</li>
+          <li>Responsabilidade de provedores e regulação de plataformas</li>
+        </ul>
+      </details>
+
+      <details class="modulo">
+        <summary>
+          <span class="mod-num">Módulo 11</span>
+          <span class="mod-tit">Inteligência artificial e dados pessoais</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>Conceitos de inteligência artificial e aprendizado de máquina</li>
+          <li>Vieses, discriminação algorítmica e transparência</li>
+          <li>Biometria e reconhecimento facial</li>
+          <li>O marco regulatório da IA em debate no Brasil</li>
+        </ul>
+      </details>
+
+      <details class="modulo">
+        <summary>
+          <span class="mod-num">Módulo 12</span>
+          <span class="mod-tit">Regulação e agências reguladoras</span>
+          <span class="mod-sinal" aria-hidden="true"></span>
+        </summary>
+        <ul class="aulas">
+          <li>Teoria da regulação e modelos regulatórios</li>
+          <li>A Lei nº 13.848/2019 e a governança das agências reguladoras</li>
+          <li>Análise de impacto regulatório e participação social</li>
+        </ul>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- 5 PARA QUEM -->
+<section class="publico">
+  <div class="wrap">
+    <span class="eyebrow rev">Para quem é</span>
+    <h2 class="h2 h2--largo rev">Para quem quer uma <em>vaga na Agência</em>, venha dos concursos ou do mercado de privacidade</h2>
+
+    <div class="perfis rev">
+      <div class="perfil">
+        <h3>Quem estuda para concursos e carreiras federais</h3>
+        <p>Você já conhece o ritmo de prova e a banca. Falta o conteúdo específico deste concurso, que é novo e pouco coberto por materiais tradicionais. As aulas partem do zero em proteção de dados e chegam aos atos da Agência.</p>
+      </div>
+      <div class="perfil">
+        <h3>Quem mira agências reguladoras</h3>
+        <p>A ANPD é a agência mais recente do país e está formando o primeiro quadro de carreira. O curso reúne a regulação de dados e a teoria regulatória que o cargo exige.</p>
+      </div>
+      <div class="perfil">
+        <h3>Encarregados, advogados e profissionais de privacidade e compliance</h3>
+        <p>Você aplica a LGPD todos os dias. O curso organiza esse repertório no formato em que a banca cobra e cobre o que a rotina não exige: estrutura da Agência, processo sancionador e teoria da regulação.</p>
+      </div>
+      <div class="perfil">
+        <h3>Profissionais de tecnologia e segurança da informação</h3>
+        <p>Segurança, incidentes, inteligência artificial e biometria estão no centro do trabalho da Agência. O curso entrega a base jurídica e regulatória que completa a formação técnica.</p>
+      </div>
+    </div>
+    <p class="nota" style="margin-top:28px;max-width:72ch">Os requisitos de formação para o cargo serão definidos no edital.</p>
+  </div>
+</section>
+
+<!-- 6 OBJEÇÕES -->
+<section class="duvidas claro">
+  <div class="wrap">
+    <span class="eyebrow">Antes de decidir</span>
+    <h2 class="h2 h2--largo">O que perguntam <em>antes de começar</em></h2>
+
+    <div class="duvida rev">
+      <h3>"Nunca estudei proteção de dados. Consigo acompanhar?"</h3>
+      <p>
+        Consegue. As aulas começam pelos fundamentos e pelos conceitos da LGPD antes
+        de chegar aos atos da Agência, ao ECA Digital e à regulação. Não é preciso
+        ter trabalhado na área: o curso foi pensado também para quem vem de outras
+        carreiras e de outros concursos e precisa dominar o conteúdo específico deste
+        edital.
+      </p>
+    </div>
+
+    <div class="duvida rev">
+      <h3>"Já trabalho com LGPD. Preciso de um curso para isso?"</h3>
+      <p>
+        Saber aplicar a lei no dia a dia é diferente de julgar itens de prova. O
+        Cebraspe é conhecido por itens de certo ou errado, em que uma palavra muda o
+        gabarito, e a rotina profissional não treina essa leitura. Além disso, a
+        prática de mercado costuma se concentrar em algumas frentes, enquanto a prova
+        tende a percorrer a lei inteira, os atos da Agência e temas que raramente
+        aparecem no trabalho de consultoria.
+      </p>
+      <p class="duvida-selo">Experiência é vantagem. Sozinha, não é preparação</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 O QUE VOCÊ LEVA -->
+<section class="materiais">
+  <div class="wrap">
+    <span class="eyebrow rev">Como funciona</span>
+    <h2 class="h2 h2--largo rev">Aulas gravadas, questões no padrão da banca e dois encontros <em>ao vivo</em></h2>
+    <p class="lead rev">
+      Videoaulas na Hotmart para assistir no seu ritmo, com prática no padrão
+      Cebraspe e encontros ao vivo com as docentes.
+    </p>
+
+    <div class="kits">
+      <div class="kit rev">
+        <h3>Videoaulas gravadas</h3>
+        <p>Doze módulos e 52 horas de carga horária, organizados para estudo sequencial ou para consulta por tema.</p>
+      </div>
+      <div class="kit rev">
+        <h3>Encontro ao vivo de resolução de questões</h3>
+        <p>Uma sessão com as docentes para resolver e comentar itens no padrão da banca.</p>
+      </div>
+      <div class="kit rev">
+        <h3>Encontro ao vivo sobre a prova discursiva</h3>
+        <p>Uma sessão dedicada a como estruturar a resposta e aos temas regulatórios mais prováveis.</p>
+      </div>
+      <div class="kit rev">
+        <h3>Questões inéditas no padrão Cebraspe</h3>
+        <p>Itens escritos pelas docentes sobre o conteúdo regulatório, com comentários.</p>
+      </div>
+      <div class="kit rev">
+        <h3>Material de apoio em PDF</h3>
+        <p>Resumo de cada módulo com a indicação dos dispositivos e atos estudados.</p>
+      </div>
+      <div class="kit rev">
+        <h3>Acesso por 12 meses</h3>
+        <p>Tempo para estudar, revisar e voltar às aulas até a prova e depois dela.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 OFERTA -->
+<section class="oferta claro" id="oferta">
+  <div class="wrap oferta-in">
+    <span class="eyebrow">Lista de espera</span>
+    <h2 class="h2">Preparatório <em>ANPD</em></h2>
+    <p class="lead">Conteúdo regulatório completo para o concurso de Especialista em Regulação de Proteção de Dados.</p>
+
+    <div class="caixa">
+      <ul class="inclui">
+        <li><span>12 módulos regulatórios, com carga horária de 52 horas</span></li>
+        <li><span>1 encontro ao vivo de resolução de questões</span></li>
+        <li><span>1 encontro ao vivo sobre a prova discursiva</span></li>
+        <li><span>Questões inéditas no padrão Cebraspe, comentadas</span></li>
+        <li><span>Material de apoio em PDF por módulo</span></li>
+        <li><span>Acesso por 12 meses</span></li>
+      </ul>
+
+      <form class="lista" id="lista" novalidate data-endpoint="">
+        <h3 class="lista-tit">Entre na lista de espera</h3>
+        <p class="lista-sub">As matrículas ainda não abriram. Deixe seus dados e você recebe o aviso de abertura.</p>
+        <div class="campo">
+          <label for="l-nome">Nome</label>
+          <input id="l-nome" name="nome" type="text" autocomplete="name" required>
+        </div>
+        <div class="campo">
+          <label for="l-email">E-mail</label>
+          <input id="l-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="campo">
+          <label for="l-zap">WhatsApp <span>(opcional)</span></label>
+          <input id="l-zap" name="whatsapp" type="tel" autocomplete="tel">
+        </div>
+        <label class="aceite">
+          <input type="checkbox" name="aceite" required>
+          <span>Autorizo a Digital Ético a usar meus dados só para avisar sobre a abertura do Preparatório ANPD, conforme a <a href="https://digitaletico.com.br/documentos/politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span>
+        </label>
+        <button class="btn btn--cta" type="submit">Entrar na lista de espera</button>
+        <p class="lista-msg" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- REATIVAR quando houver link do checkout Hotmart: trocar o <form> acima por este bloco e os href="#lista" por #oferta.
+      <div class="preco">
+        <div class="preco-label">Valor</div>
+        <div class="preco-valor"><small>R$</small>797</div>
+        <div class="preco-parcela">em até 10x no cartão, pela Hotmart</div>
+        <a class="btn btn--cta" href="COLOCAR-LINK-HOTMART">Quero me preparar</a>
+        <p class="nota">Pagamento processado pela Hotmart</p>
+      </div>
+
+      <p class="garantia">
+        <b>Direito de arrependimento de 7 dias.</b> Se o curso não for o que você
+        esperava, peça o reembolso integral em até 7 dias da compra, conforme o
+        art. 49 do Código de Defesa do Consumidor.<br><br>
+        <b>Liberação do conteúdo.</b> Nos primeiros 7 dias você tem acesso a até 30%
+        do conteúdo disponível. O restante é liberado a partir do 8º dia e segue o
+        calendário de publicação das aulas.
+      </p>
+      -->
+    </div>
+  </div>
+</section>
+
+<!-- 10 FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <span class="eyebrow rev">Dúvidas</span>
+    <h2 class="h2 rev">Perguntas <em>frequentes</em></h2>
+
+    <div class="perguntas rev">
+      <details class="pergunta">
+        <summary>O curso tem vínculo com a ANPD ou com o Cebraspe?</summary>
+        <div class="pergunta-corpo">
+          Não. É um curso independente, da Digital Ético. A ANPD e o Cebraspe são
+          citados apenas porque realizam e organizam o concurso.
+        </div>
+      </details>
+
+      <details class="pergunta">
+        <summary>O curso garante aprovação?</summary>
+        <div class="pergunta-corpo">
+          Não. Nenhum curso pode garantir aprovação em concurso público. O que
+          oferecemos é conteúdo regulatório atualizado, prática no padrão da banca e
+          encontros ao vivo com as docentes.
+        </div>
+      </details>
+
+      <details class="pergunta">
+        <summary>As datas do concurso estão confirmadas?</summary>
+        <div class="pergunta-corpo">
+          Ainda não. As datas divulgadas nesta página são estimativas constantes do
+          processo de contratação da banca e podem mudar. O calendário definitivo sai
+          com o edital de abertura.
+        </div>
+      </details>
+
+      <details class="pergunta">
+        <summary>Por quanto tempo tenho acesso?</summary>
+        <div class="pergunta-corpo">
+          Por 12 meses a partir da compra.
+        </div>
+      </details>
+
+      <details class="pergunta">
+        <summary>Quando recebo acesso às aulas?</summary>
+        <div class="pergunta-corpo">
+          O acesso é liberado pela Hotmart após a confirmação do pagamento. Nos
+          primeiros 7 dias fica disponível até 30% do conteúdo; o restante é liberado
+          a partir do 8º dia, conforme o calendário de publicação das aulas.
+        </div>
+      </details>
+
+      <details class="pergunta">
+        <summary>Preciso ser formado em Direito?</summary>
+        <div class="pergunta-corpo">
+          Para o curso, não: as aulas explicam os conceitos jurídicos desde a base.
+          Para o cargo, os requisitos de formação serão definidos no edital.
+        </div>
+      </details>
+
+      <details class="pergunta">
+        <summary>E se o edital trouxer mudanças no conteúdo?</summary>
+        <div class="pergunta-corpo">
+          Nossa grade pode ser revisada com a publicação do edital. Se houver ajuste,
+          os alunos são avisados e recebem o conteúdo revisado sem custo adicional.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 11 FECHO -->
+<section class="fecho">
+  <div class="wrap">
+    <h2 class="h2">A Agência está formando o seu <em>primeiro quadro</em> de carreira</h2>
+    <p class="lead">
+      Cinquenta vagas, subsídio inicial de R$ 17.726,42 e a oportunidade de trabalhar
+      com regulação de dados no serviço público federal. A preparação começa pelo
+      conteúdo que define o cargo.
+    </p>
+    <a class="btn btn--cta" href="#lista">Entrar na lista de espera</a>
+    <p class="nota">Doze módulos regulatórios · 52 horas · dois encontros ao vivo · questões no padrão Cebraspe · acesso por 12 meses</p>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape-in">
+      <div><strong style="color:rgba(226,219,203,.9);font-weight:500">Digital Ético LTDA</strong> · CNPJ 66.863.514/0001-89 · Salvador/BA</div>
+      <div class="rodape-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Contato</a>
+      </div>
+    </div>
+    <p class="rodape-legal">
+      Curso independente, sem vínculo com a Agência Nacional de Proteção de Dados
+      (ANPD) nem com o Cebraspe, e sem promessa de aprovação. Informações sobre o
+      concurso: Lei nº 15.352/2026, Portaria MGI nº 5.092/2026 e Portaria GABPR/ANPD
+      nº 759/2026. Vagas, remuneração, etapas e datas dependem de confirmação no
+      edital de abertura.
+    </p>
+  </div>
+</footer>
+
+<div class="barra">
+  <a class="btn btn--cta" href="#lista">Entrar na lista de espera</a>
+</div>
+
+<script>
+(function(){
+  var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var alvos = document.querySelectorAll('.rev');
+  if(reduz || !('IntersectionObserver' in window)){
+    alvos.forEach(function(el){ el.classList.add('on'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entradas){
+    entradas.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  alvos.forEach(function(el){ obs.observe(el); });
+})();
+
+(function(){
+  var f=document.getElementById('lista'); if(!f) return;
+  var msg=f.querySelector('.lista-msg'), btn=f.querySelector('button[type=submit]');
+  function dizer(t,c){ msg.textContent=t; msg.className='lista-msg '+(c||''); }
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nome=f.nome.value.trim(), email=f.email.value.trim();
+    var okEmail=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+    f.nome.setAttribute('aria-invalid',!nome); f.email.setAttribute('aria-invalid',!okEmail);
+    if(!nome||!okEmail){ dizer('Preencha nome e e-mail válidos.','erro'); return; }
+    if(!f.aceite.checked){ dizer('Marque a autorização para entrar na lista.','erro'); return; }
+    var url=f.getAttribute('data-endpoint');
+    if(!url){ dizer('Cadastro indisponível no momento. Tente novamente em instantes.','erro'); console.warn('Lista de espera: data-endpoint do formulário #lista está vazio.'); return; }
+    btn.disabled=true; dizer('Enviando…');
+    fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({nome:nome,email:email,whatsapp:f.whatsapp.value.trim(),aceite:true,origem:'lp-preparatorio-anpd',data:new Date().toISOString()})})
+    .then(function(r){ if(!r.ok) throw 0; f.reset(); dizer('Pronto. Você está na lista e recebe o aviso de abertura.','ok'); })
+    .catch(function(){ dizer('Não foi possível enviar. Tente novamente.','erro'); })
+    .then(function(){ btn.disabled=false; });
+  });
+})();
+</script>
+
+</body>
+</html>
